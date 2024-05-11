@@ -24,12 +24,12 @@ I haven't got a reply) I decided to automate the whole user flow end to end whil
 This is where this gets a little bit tricky since in general I wouldn't automate flows this long and with unrelated (at least
 without more context) tasks one after the other. In the flow I see many potential separate test cases that could be a lot more atomic.
 i.e.: 
-    * Creating a new user and then loging out and back in
-    * A regular flow of buying an item
-    * A variation where we create a new account and then buy (as I assume that getting a new customer to create an account and buy an item
-    without issues would be a very prioritary test product-wise)
-    * Pushing limitations in the various forms
-    * A long etc.
+* Creating a new user and then loging out and back in
+* A regular flow of buying an item
+* A variation where we create a new account and then buy (as I assume that getting a new customer to create an account and buy an item
+without issues would be a very prioritary test product-wise)
+* Pushing limitations in the various forms
+* A long etc.
 
 To move forward with the task I decided to simply automate the whole flow as one happy path test while doing basic validations. 
 
@@ -42,13 +42,15 @@ i.e. a function that only clicks a button seems a little redundant, but on the o
 My favorite approach is to have small steps and then create bigger more complex steps that use the small ones, but it seemed a little overkill 
 for this project.
 
+There's a lot of redundancy in this project as it is small, but I think this approach is useful in long term projects.
+
 ## Locators
 
 In general I follow Playwright's practice of using it's own methods (like getByRole()) as much as possible, but this is always
 extremely dependent on the nature of the project:
-    * Do we have access to dedicated automation ID's?
-    * Do texts or placeholder texts often change?
-    * Does the DOM structure change often or are there plans for it to change?
+* Do we have access to dedicated automation ID's?
+* Do texts or placeholder texts often change?
+* Does the DOM structure change often or are there plans for it to change?
 Just base in experience I avoided symbols when looking for texts and in some cases used careful xpath or css lookouts for some
 elements, not as a full path but to help narrow down the playwright locators.
 
@@ -73,9 +75,9 @@ report or a situation to explore in depth (possible automation bug).
 
 Again, I automated the flow just to stick to the task, but in a real scenario I would advocate for more atomic tests, with setup
 and teardown stages to guarantee encapsulation and no side effects, i.e.:
-    * Bypass login in tests that aren't about the login, for example passing a session.
-    * Creating users through a API and then deleting it after the test is run to avoid hardcoded data or creating it through UI
-    * etc
+* Bypass login in tests that aren't about the login, for example passing a session.
+* Creating users through a API and then deleting it after the test is run to avoid hardcoded data or creating it through UI
+* etc
 
 For legibility I like tests calling higher scope functions that perform operations from a more user-like POV, as completing
 a form or navigating somewhere, instead of calling low level operations like a "click"
