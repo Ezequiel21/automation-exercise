@@ -1,4 +1,4 @@
-import { test, type Page, type Locator, expect } from "@playwright/test"
+import { type Page, type Locator, expect } from "@playwright/test"
 
 export class HomePage {
     readonly url: string;
@@ -33,6 +33,7 @@ export class HomePage {
         const itemsList = await this.getViewProduct(productPosition);
         await itemsList.scrollIntoViewIfNeeded();
         await itemsList.click();
+        await this.page.waitForLoadState("domcontentloaded")
     }
 
 

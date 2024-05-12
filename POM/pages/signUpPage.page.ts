@@ -1,4 +1,4 @@
-import { test, type Page, type Locator } from "@playwright/test"
+import { type Page, expect, type Locator } from "@playwright/test"
 
 export class SignUpPage {
     readonly url: string;
@@ -17,6 +17,7 @@ export class SignUpPage {
     readonly zipCode: Locator;
     readonly mobileNumber: Locator;
     readonly createAccountButton: Locator;
+    readonly enterAccountInformationHeader: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -32,6 +33,7 @@ export class SignUpPage {
         this.zipCode = page.locator('#zipcode'); // Label is wrong in this one :v/
         this.mobileNumber = page.getByLabel('Mobile Number *');
         this.createAccountButton = page.getByRole('button', { name: 'Create Account' });
+        this.enterAccountInformationHeader = page.getByText('Enter Account Information');
     }
 
     async fillRequiredFields(
@@ -60,6 +62,10 @@ export class SignUpPage {
 
     async pressCreateAccount() {
         await this.createAccountButton.click();
+    }
+
+    async validateEnterAccountInformationHeaderVisible() {
+        await expect(this.enterAccountInformationHeader, "Enter account info header is not visible").toBeVisible();
     }
 
 }

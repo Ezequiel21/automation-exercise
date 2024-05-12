@@ -31,7 +31,21 @@ without issues would be a very prioritary test product-wise)
 * Pushing limitations in the various forms
 * A long etc.
 
-To move forward with the task I decided to simply automate the whole flow as one happy path test while doing basic validations. 
+To move forward with the task I decided to simply automate the whole flow as one happy path test while doing basic validations. I am adding 
+validations and steps as part of the POM pages since this is a small project, but normally for long term projects I would separate them in
+other files.
+
+## Pages
+
+I decided to initialize the pages in a different file to avoid having to call them in every test suite. Then I extended the basic playwright
+"test" class to contain them. This saves a lot of code specially in tests covering multiple pages.
+
+## Data
+
+I generated most of the data randomly at runtime with faker library, and created some generic functions to easily create it depending on 
+common contexts. The approach to data is always extremely dependent on the nature of the project, environments, CI pipelines, etc.
+i.e. I am hardcoding the web URL as this is the only one, but further abstraction would be required if we ran tests in 3 different envs for example.
+In that case I would divide the data in env dependent files (CI, DEV, QA, STAGING, etc)
 
 ## Steps
 
@@ -40,7 +54,7 @@ common operations. On the negative side it creates a constant questioning on how
 complex operations can save a lot of coding time but is less flexible, while abstracting small pieces is more customizable but risks redundancy
 i.e. a function that only clicks a button seems a little redundant, but on the other hand helps to encapsulate the exact implementation.
 My favorite approach is to have small steps and then create bigger more complex steps that use the small ones, but it seemed a little overkill 
-for this project.
+for this project. If using this approach in a bigger project I would separate the steps from the page object to a specific steps object probably.
 
 There's a lot of redundancy in this project as it is small, but I think this approach is useful in long term projects.
 

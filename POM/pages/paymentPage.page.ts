@@ -1,4 +1,4 @@
-import { test, type Page, type Locator } from "@playwright/test"
+import { type Page, type Locator } from "@playwright/test"
 
 export class PaymentPage {
     readonly page: Page;
@@ -37,5 +37,6 @@ export class PaymentPage {
 
     async confirmPayment() {
         await this.payConfirmButton.click();
+        await this.page.waitForLoadState("domcontentloaded");
     }
 }

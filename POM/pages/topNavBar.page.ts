@@ -1,4 +1,4 @@
-import { test, type Page, type Locator } from "@playwright/test"
+import { expect, type Page, type Locator } from "@playwright/test"
 
 export class TopNavBarPage {
     readonly page: Page;
@@ -22,5 +22,9 @@ export class TopNavBarPage {
 
     async goToContactUs() {
         await this.contactUsButton.click();
+    }
+
+    async validateLogoutButtonIsVisible() {
+        expect(this.logOutButton).toBeVisible;
     }
 }
