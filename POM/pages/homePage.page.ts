@@ -11,7 +11,7 @@ export class HomePage {
     constructor(page: Page) {
         this.page = page;
         this.url = "https://automationexercise.com";
-        this.itemList = page.locator(".features_items").locator(".product-image-wrapper").getByRole("listitem").nth(21);
+        this.itemList = page.locator(".features_items").locator(".product-image-wrapper").getByRole("listitem");
 
         this.homeButton = page.getByRole("menuitem", { name: "Home" });
         this.navBar = page.getByRole("menubar");
@@ -25,7 +25,7 @@ export class HomePage {
     }
 
     async getViewProduct(productPosition: number) {
-        const viewProductButton = this.page.locator(".features_items").locator(".product-image-wrapper").getByRole("listitem").nth(productPosition);
+        const viewProductButton = this.itemList.nth(productPosition);
         return viewProductButton
     }
 

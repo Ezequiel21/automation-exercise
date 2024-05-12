@@ -2,6 +2,8 @@ import { faker } from "@faker-js/faker";
 
 export class DataGenerator {
 
+    readonly countries: Array<string> = ["India", "United States", "Canada", "Australia", "Israel", "New Zealand", "Singapore"];
+
     async creditCardInfo() {
         return {
             cardNumber: faker.finance.creditCardNumber(),
@@ -25,4 +27,7 @@ export class DataGenerator {
         }
     }
 
+    async randomSignupCountry() {
+        return this.countries[Math.floor(Math.random() * this.countries.length)]
+    }
 }
