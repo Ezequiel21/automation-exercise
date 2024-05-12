@@ -87,7 +87,7 @@ The submit button in the "contact us" form didn't work. I can't know for sure if
 party webapp so I simply validated it is clickable and moved forward. Obviously in a real scenario this would be either a bug to
 report or a situation to explore in depth (possible automation bug).
 
-** I want to be absolutely clear in that I think this flow should not be a single test but I followed the instructions for the task simply automating the flow. The same goes for the validations, I did a couple basic ones through the flow, if separated in smaller tests I would get more thorough with validations, for example instead of just checking the "logout" button is visible after login, we could check we are actually logged by going to an account page or checking the user name somewhere in the page **
+**I want to be absolutely clear in that I think this flow should not be a single test but I followed the instructions for the task simply automating the flow. The same goes for the validations, I did a couple basic ones through the flow, if separated in smaller tests I would get more thorough with validations, for example instead of just checking the "logout" button is visible after login, we could check we are actually logged by going to an account page or checking the user name somewhere in the page**
 
 and teardown stages to guarantee encapsulation and no side effects, i.e.:
 * Bypass login in tests that aren't about the login, for example passing a session.
