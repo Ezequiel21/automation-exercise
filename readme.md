@@ -90,7 +90,7 @@ report or a situation to explore in depth (possible automation bug).
 
 and teardown stages to guarantee encapsulation and no side effects, i.e.:
 * Bypass login in tests that aren't about the login, for example passing a session.
-* Creating users through an API and then deleting it after the test is run to avoid hardcoded data or creating it through UI
+* Creating users through an API and then deleting it after the test is run to avoid hardcoded data or creating it through UI 
 * etc
 
 For legibility I like tests calling higher scope functions that perform operations from a more user-like POV, as completing
