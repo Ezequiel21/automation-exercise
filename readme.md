@@ -2,14 +2,13 @@
 
 With the main task being the automation of the described user flow, my main focus was to set up the basic
 structure and practices to be used in automating the site. I decided to use Playwright as it was one of
-the technologies you use the most as I understand, and i have experience with it. I went with typescript as
+the technologies you use the most as I understand, and I have experience with it. I went with typescript as
 a language to use the opportunity to come back to it a bit since my main language has always been Python,
 although I use js frequently.
 
 I went with a POM approach as it is universally useful as a base model to structure an automation project.
 By thinking of each page as an object with properties and methods we can easily import them and interact with
-them directly from each test case/suite, and provides the basic advantages of object oriented programming to
-an automation context.
+them directly from each test case/suite, it's scalable and maintaneble, and provides the basic advantages of object oriented programming to an automation context.
 
 # Tools
 
@@ -29,7 +28,7 @@ i.e.:
 * A variation where we create a new account and then buy (as I assume that getting a new customer to create an account and buy an item
 without issues would be a very prioritary test product-wise)
 * Pushing limitations in the various forms
-* A long etc.
+* etc.
 
 To move forward with the task I decided to simply automate the whole flow as one happy path test while doing basic validations. I am adding 
 validations and steps as part of the POM pages since this is a small project, but normally for long term projects I would separate them in
