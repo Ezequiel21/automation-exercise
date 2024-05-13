@@ -17,7 +17,7 @@ realistic mock data in runtime.
 
 # Scope, test plan and strategy
 
-As I assume the main goal of the task is to show my automation practices (I e-mailed a question about this but as of 11/5/24
+As I assume the main goal of the task is to show my automation practices (I e-mailed a question about this but as of 13/5/24
 I haven't got a reply) I decided to automate the whole user flow end to end while performing basic validations along the way.
 
 This is where this gets a little bit tricky since in general I wouldn't automate flows this long and with unrelated (at least
@@ -79,6 +79,12 @@ a bit too much for the scope of the task.
 
 As with anything, variable and function names are subject to a lot of refinement and reiteration often evolving specially at the early
 stages of framework definition. I focused on maintaining consistency as it's in my opinion the most important point.
+
+# Report
+
+I removed the report from gitignore, you can see it by running npx playwright show-report in the root.
+The flow ran without problems except for the submit button at the "contact us" page, as it didn't work and didn't advance the flow, so the step 19 of the user flow could not be tested.
+Also the report contains a lot of instances of the routing tool in playwright checking the network and blocking ads.
 
 # Extra notes
 
